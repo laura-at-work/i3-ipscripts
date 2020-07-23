@@ -2,6 +2,17 @@
 
 interface=$1
 
-ip=`/usr/sbin/ip -f inet addr show $interface | grep -Po 'inet \K[\d.]+'`
+if [ -z "$interface" ]; then
+    echo "Interface: error"
+    exit 1;
+fi
 
-echo "$ip"
+ipresponse=`/usr/sbin/ip -f inet addr show $interface 2> /dev/null | grep -Po 'inet \K[\d.]+'`
+
+if [[ $ipresponse == *"."*"."*"."* ]]; then
+    ip=$ipresponse
+else
+    ip="down"
+fi
+
+echo "$interface: $ip"
