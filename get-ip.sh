@@ -16,4 +16,7 @@ else
 fi
 
 echo "$interface: $ip"
+echo "$interface: $ip"
+# echo "#112233"   # foreground color
+# echo "#00ff00"   # background color
 exit 0

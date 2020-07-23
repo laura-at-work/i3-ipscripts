@@ -1,5 +1,3 @@
 [lan]
-full_text=aDsadsadsad
-command=/assd/sadsd/get-ip.sh enp0s17
-color=#FFFF00
-
+command=/home/xxx/i3custom/get-ip.sh enp0sxx
+interval=10
