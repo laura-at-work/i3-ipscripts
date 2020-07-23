@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+upcolor="#93f55b"
+downcolor="#ff5733"
+
+
 interface=$1
 
 if [ -z "$interface" ]; then
@@ -10,10 +15,10 @@ fi
 ipresponse=`/usr/sbin/ip -f inet addr show $interface 2> /dev/null | grep -Po 'inet \K[\d.]+'`
 
 if [[ $ipresponse == *"."*"."*"."* ]]; then
-    fgcolor="#daf7A6"
+    fgcolor=$upcolor
     ip=$ipresponse
 else
-    fgcolor="#ff5733"
+    fgcolor=$downcolor
     ip="down"
 fi
 
